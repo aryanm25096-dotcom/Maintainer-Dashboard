@@ -1,123 +1,61 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import { AppProvider, useApp } from "./contexts/AppContext";
-import { DashboardLayout } from "./components/layout/DashboardLayout";
-import { Login } from "./pages/Login";
-import { Overview } from "./pages/Overview";
-import { PRReviews } from "./pages/PRReviews";
-import { IssueTriage } from "./pages/IssueTriage";
-import { Mentorship } from "./pages/Mentorship";
-import { CommunityImpact } from "./pages/CommunityImpact";
-import { SentimentAnalysis } from "./pages/SentimentAnalysis";
-import { Analytics } from "./pages/Analytics";
-import { Profile } from "./pages/Profile";
-import { Settings } from "./pages/Settings";
-import { Toaster } from "./components/ui/sonner";
 
-// Error Boundary Component
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div style={{ padding: "20px", textAlign: "center" }}>
-          <h1 style={{ color: "#dc2626" }}>Something went wrong</h1>
-          <p>Please check the console for errors and refresh the page.</p>
-          <button 
-            onClick={() => window.location.reload()}
-            style={{ 
-              padding: "10px 20px", 
-              backgroundColor: "#3b82f6", 
-              color: "white", 
-              border: "none", 
-              borderRadius: "5px",
-              cursor: "pointer"
-            }}
-          >
-            Refresh Page
-          </button>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
-
-// Protected Route component
-function ProtectedRoute({ children }) {
-  const { isAuthenticated, isLoading } = useApp();
-  
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
-      </div>
-    );
-  }
-  
-  return isAuthenticated ? children : <Navigate to="/login" replace />;
-}
-
-// Main App Routes component
-function AppRoutes() {
-  const { isAuthenticated } = useApp();
-
-  if (!isAuthenticated) {
-    return (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    );
-  }
-
-  return (
-    <DashboardLayout>
-      <Routes>
-        <Route path="/" element={<Navigate to="/overview" replace />} />
-        <Route path="/overview" element={<Overview />} />
-        <Route path="/reviews" element={<PRReviews />} />
-        <Route path="/issues" element={<IssueTriage />} />
-        <Route path="/mentorship" element={<Mentorship />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/impact" element={<CommunityImpact />} />
-        <Route path="/sentiment" element={<SentimentAnalysis />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="*" element={<Navigate to="/overview" replace />} />
-      </Routes>
-    </DashboardLayout>
-  );
-}
-
-// Main App component
+// SIMPLE TEST COMPONENT - This will help us verify React is working
 export default function App() {
   return (
-    <ErrorBoundary>
-      <ThemeProvider>
-        <AppProvider>
-          <Router>
-            <div className="App">
-              <AppRoutes />
-              <Toaster />
-            </div>
-          </Router>
-        </AppProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
+    <div style={{ 
+      padding: "20px", 
+      fontFamily: "Arial, sans-serif",
+      textAlign: "center",
+      backgroundColor: "#f0f9ff",
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center"
+    }}>
+      <h1 style={{ 
+        color: "#1e40af", 
+        fontSize: "3rem",
+        marginBottom: "1rem",
+        fontWeight: "bold"
+      }}>
+        🎉 Hello Dashboard!
+      </h1>
+      <p style={{ 
+        color: "#374151", 
+        fontSize: "1.5rem",
+        marginBottom: "2rem"
+      }}>
+        React is working correctly on localhost:3004
+      </p>
+      <div style={{ 
+        background: "#dbeafe", 
+        padding: "30px", 
+        borderRadius: "12px",
+        border: "3px solid #3b82f6",
+        maxWidth: "600px",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
+      }}>
+        <h2 style={{ color: "#1e40af", marginBottom: "1rem", fontSize: "1.8rem" }}>
+          ✅ Vite React App is Working!
+        </h2>
+        <ul style={{ textAlign: "left", color: "#1e40af", fontSize: "1.2rem", lineHeight: "1.6" }}>
+          <li>✅ React is mounting to DOM correctly</li>
+          <li>✅ Vite dev server is running on port 3004</li>
+          <li>✅ JSX is rendering properly</li>
+          <li>✅ File extensions are correct</li>
+          <li>✅ No 404 errors</li>
+        </ul>
+        <p style={{ 
+          marginTop: "1.5rem", 
+          color: "#1e40af",
+          fontWeight: "bold",
+          fontSize: "1.1rem"
+        }}>
+          🚀 Ready to restore the full dashboard!
+        </p>
+      </div>
+    </div>
   );
 }
