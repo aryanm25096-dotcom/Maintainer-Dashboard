@@ -1,0 +1,30 @@
+[
+  {
+    "id": "445",
+    "title": "Bug: Memory leak in data processing",
+    "repo": "user/another-repo",
+    "author": "user123",
+    "status": "open",
+    "priority": "high",
+    "labels": [
+      "bug",
+      "performance"
+    ],
+    "createdAt": "2024-01-14T12:00:00Z",
+    "updatedAt": "2024-01-15T08:30:00Z"
+  },
+  {
+    "id": "446",
+    "title": "Feature request: Add dark mode support",
+    "repo": "user/main-project",
+    "author": "user456",
+    "status": "open",
+    "priority": "low",
+    "labels": [
+      "enhancement",
+      "ui"
+    ],
+    "createdAt": "2024-01-13T15:20:00Z",
+    "updatedAt": "2024-01-14T11:45:00Z"
+  }
+]

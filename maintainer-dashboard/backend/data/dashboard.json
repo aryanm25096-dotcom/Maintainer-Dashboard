@@ -1,0 +1,44 @@
+{
+  "metrics": {
+    "totalPRReviews": 1234,
+    "issuesTriaged": 567,
+    "contributorsMentored": 89,
+    "avgResponseTime": 2.4
+  },
+  "recentActivity": [
+    {
+      "id": "1",
+      "action": "Reviewed PR #234",
+      "repo": "user/main-project",
+      "time": "2 hours ago",
+      "type": "review",
+      "timestamp": "2025-10-06T04:16:14.418Z"
+    },
+    {
+      "id": "2",
+      "action": "Triaged issue #445",
+      "repo": "user/another-repo",
+      "time": "4 hours ago",
+      "type": "triage",
+      "timestamp": "2025-10-06T02:16:14.419Z"
+    }
+  ],
+  "topRepositories": [
+    {
+      "name": "user/main-project",
+      "reviews": 45,
+      "issues": 23,
+      "stars": "12.3k",
+      "language": "TypeScript",
+      "lastActivity": "2 hours ago"
+    },
+    {
+      "name": "user/secondary-repo",
+      "reviews": 32,
+      "issues": 18,
+      "stars": "8.1k",
+      "language": "JavaScript",
+      "lastActivity": "5 hours ago"
+    }
+  ]
+}
